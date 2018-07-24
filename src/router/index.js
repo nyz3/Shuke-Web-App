@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from '@/components/HomePage'
+import App from '@/App'
+//import HomePage from '@/components/HomePage' //dont forget about this
 import routeTest from '@/components/routeTest'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
+    { //Homepage - loading screen
       path: '/',
-      name: 'HomePage',
-      component: HomePage
+      name: 'App',
+      component: App
     },
     {
       path: '/test',
