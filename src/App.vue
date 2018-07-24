@@ -1,11 +1,14 @@
+<!-- This is for the home page of the application, should contain fixed components that are present on every page-->
+
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    
     <router-view/>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: 'App'
 }

@@ -6,15 +6,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+  el: '#app', //links to App.vue div id = "app"
+  router, //how does router work??
+  components: { App }, //import App.vue page as a component
+  template: '<App/>' //create html/css template from App.vue class
 })
