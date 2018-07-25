@@ -9,30 +9,46 @@
     </head>
 
     <body>
-      <div class="navbar">
-        <a href=#home>  <!--Clicking on Shuke logo should return user to the home page--> 
-          <img src="./assets/shukeLogo.png" alt="Shuke.ai" class="logo">
-        </a>
-        <div class="navlinks">
-          <a href="#home">Home</a>
-          <a href="#news">News</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class=searchbar>
-          <form class="searchform" action="/action_page.php">
-            <input type="text" placeholder="Search..." value="">    <!--SEARCH BAR GOES HERE -->
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
+      <div class="navbarcontainer">
+        <div class="navbar">
+          <a href=#home>  <!--Clicking on Shuke logo should return user to the home page--> 
+            <img src="./assets/shukeLogo.png" alt="Shuke.ai" class="logo">
+          </a>
+          <div class="navlinks">
+            <a href="#following">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class=searchbar>
+            <form class="searchform" action="/action_page.php">   <!--search contents go to /action_page.php default for now -->
+              <input type="text" placeholder="Search..." value="">    <!--SEARCH BAR GOES HERE -->
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
         </div>
       </div>
       
-      <div class="content">
-        <!-- <router-view></router-view>  This is where additional components go in addition to the base layer, router-views can have nested
-        router-views within-->
+      <div class="content"> <!--all NONFIXED content, should all have top-margin separated from fixed navbar-->
+
+
+        <div class="contentnav"> <!-- navigation bar (NOT FIXED) for newsfeed -->
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="news.asp">News</a></li>
+            <li><a href="contact.asp">Contact</a></li>
+            <li><a href="about.asp">About</a></li>
+          </ul>
+        </div>
+
+
+
       </div>
     </body>
   </html>  
 </template>
+
+    <!--<router-view></router-view>  This is where additional components go in addition to the base layer, router-views can have nested
+          router-views within-->
 
 <script>
 /* eslint-disable */
@@ -43,22 +59,17 @@ export default {
 
 <style scoped>
 
-/*Make background color off-white to bring out color in other elements*/
-.backdrop {
-  background-color: rgba(250, 250, 250, 0.815);
-}
-
-/*Container for the navigation bar*/
-.navcontainer {
-  position: fixed;
+.navbarcontainer {
+  top: 0;
+  left: 0;
   width: 100%;
-  top: 0px;
-  left: 0px;
+  position: fixed;
+  box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
 }
 
 /* The navigation bar */
 .navbar {
-  display: flex;
+ /* display: flex;*/
   width: 80%;
   margin: 0 auto;
   align-items: center;
@@ -67,21 +78,20 @@ export default {
 
 .navlinks { /*work in progress*/
   display: flex;
-  margin-right: 18px;
-  margin-left: 27px;
+  margin-right: 38%;
+  margin-left: 3%;
 }
 
 /* Links inside the navbar */
 .navbar a {
   color: #7c7c7c;
-  padding: 14px 16px;
+  padding: 2px 16px;
   text-decoration: none;
+  
 }
-
 
 /* Change background on mouse-over */ 
 .navbar a:hover {
-  background: #ddd;
   color: black;
 }
 
@@ -89,7 +99,6 @@ export default {
   width: 80px;
   height: 36px;
 }
-
 
 /*Style the search bar*/
 .searchform {
@@ -100,18 +109,19 @@ export default {
 {
   height: 35px;
   width: 200px;
+  padding-left: 5px;
 }
 
 /*Edit searchbar placeholder for Safari/Chrome*/
 .searchform ::-webkit-input-placeholder {
   color: rgba(145, 143, 143, 0.795);
-  padding-left: 10px;
+  padding-left: 2px;
 }
 
 /*Edit searchbar placeholder for IE10*/
 .searchform :-ms-input-placeholder {
   color: rgba(145, 143, 143, 0.795);
-  padding-left: 10px;
+  padding-left: 2px;
 }
 
 /* Style the submit button for search bar */
@@ -130,7 +140,31 @@ export default {
   margin: 0;
 }
 
+/*Background for everything other than the fixed navigation bar*/
+.content {
+  background-color: rgba(26, 26, 26, 0.050);
+  color: black;
+  margin-top:56px;
+}
 
+.contentnav {
+  background-color: white;
+  height: 42px;
+  box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
+  line-height: 42px;
+}
+
+.contentnav ul {
+  height: 42px;
+  list-style-type: none;
+  line-height: 42px;
+  margin: 0;
+  padding: 0;
+}
+
+.contentnav li {
+  display: inline;
+}
 
 </style>
 
