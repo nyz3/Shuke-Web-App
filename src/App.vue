@@ -32,12 +32,26 @@
 
 
         <div class="contentnav"> <!-- navigation bar (NOT FIXED) for newsfeed -->
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="news.asp">News</a></li>
-            <li><a href="contact.asp">Contact</a></li>
-            <li><a href="about.asp">About</a></li>
-          </ul>
+          <div class="contentbuttons">
+
+              <button type="button" class="btn btn-default btn-sm">
+                <i class="fa fa-feed" aria-hidden="true"></i>
+                Newsfeed
+              </button>
+              <button type="button" class="btn btn-default btn-sm">
+                <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                Recommendations
+              </button>
+              <button type="button" class="btn btn-default btn-sm">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                Latest
+              </button>
+              <button type="button" class="btn btn-default btn-sm">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                Trending
+              </button>
+
+          </div>
         </div>
 
 
@@ -63,6 +77,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
+  min-width: 1275px;
   position: fixed;
   box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
 }
@@ -80,6 +95,8 @@ export default {
   display: flex;
   margin-right: 38%;
   margin-left: 3%;
+  font-family: "Century Gothic", sans-serif;
+  font-size: 90%;
 }
 
 /* Links inside the navbar */
@@ -87,7 +104,6 @@ export default {
   color: #7c7c7c;
   padding: 2px 16px;
   text-decoration: none;
-  
 }
 
 /* Change background on mouse-over */ 
@@ -147,23 +163,36 @@ export default {
   margin-top:56px;
 }
 
+/*graphic design of navbar divider*/
 .contentnav {
   background-color: white;
   height: 42px;
   box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
   line-height: 42px;
+  width: 100%;
+  min-width: 1266px;
 }
 
-.contentnav ul {
-  height: 42px;
-  list-style-type: none;
-  line-height: 42px;
-  margin: 0;
-  padding: 0;
+/*group of content navbar buttons*/
+.contentbuttons {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.contentnav li {
-  display: inline;
+/*centers individual buttons within content navbar divider*/
+.contentnav button {
+  font-family: "Century Gothic", sans-serif;
+  font-size: 105%;
+  vertical-align: unset;
+  margin: 0px 25px;
+  background-color: transparent;
+  border: none;
+}
+
+/*color of content navbar button text changes when hover*/
+.contentnav button:hover {
+  color: orange;
 }
 
 </style>
