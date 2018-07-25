@@ -2,10 +2,13 @@
 
 <!-- eslint-disable -->
 <template>
-  <div class="backdrop"> <!--This is the entire background of the website--> 
+  <html>
 
-  
-    <header class="navcontainer">
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
       <div class="navbar">
         <a href=#home>  <!--Clicking on Shuke logo should return user to the home page--> 
           <img src="./assets/shukeLogo.png" alt="Shuke.ai" class="logo">
@@ -15,15 +18,20 @@
           <a href="#news">News</a>
           <a href="#contact">Contact</a>
         </div>
+        <div class=searchbar>
+          <form class="searchform" action="/action_page.php">
+            <input type="text" placeholder="Search..." value="">    <!--SEARCH BAR GOES HERE -->
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
       </div>
-    </header>
-
-
-    <div class="content">
-      <router-view></router-view>  <!--This is where additional components go in addition to the base layer, router-views can have nested
-      router-views within-->
-    </div>
-  </div>
+      
+      <div class="content">
+        <!-- <router-view></router-view>  This is where additional components go in addition to the base layer, router-views can have nested
+        router-views within-->
+      </div>
+    </body>
+  </html>  
 </template>
 
 <script>
@@ -34,6 +42,7 @@ export default {
 </script>
 
 <style scoped>
+
 /*Make background color off-white to bring out color in other elements*/
 .backdrop {
   background-color: rgba(250, 250, 250, 0.815);
@@ -49,40 +58,25 @@ export default {
 
 /* The navigation bar */
 .navbar {
-  background-color: rgb(255, 255, 255);
-  position: relative; 
   display: flex;
-  left: 0; /*Position the navbar at the left of the page*/
-  top: 0; /* Position the navbar at the top of the page */
+  width: 80%;
   margin: 0 auto;
   align-items: center;
+  justify-content: center;
 }
 
 .navlinks { /*work in progress*/
-    display: flex;
-    height: 58px;
-    margin-right: 18px;
-    margin-left: 27px;
-    color: #999;
-
+  display: flex;
+  margin-right: 18px;
+  margin-left: 27px;
 }
 
 /* Links inside the navbar */
 .navbar a {
-  /*float: left;*/
-  display: inline-block;
   color: #7c7c7c;
-  vertical-align: bottom;
   padding: 14px 16px;
-  height: 30px;
   text-decoration: none;
 }
-
-.navlinks a {
-  line-height: 30px;
-}
-
-
 
 
 /* Change background on mouse-over */ 
@@ -92,9 +86,51 @@ export default {
 }
 
 .logo {
-  width: 64px;
-  height: 30px;
-  vertical-align: text-bottom;
+  width: 80px;
+  height: 36px;
 }
+
+
+/*Style the search bar*/
+.searchform {
+  display: flex;
+}
+
+.searchform input 
+{
+  height: 35px;
+  width: 200px;
+}
+
+/*Edit searchbar placeholder for Safari/Chrome*/
+.searchform ::-webkit-input-placeholder {
+  color: rgba(145, 143, 143, 0.795);
+  padding-left: 10px;
+}
+
+/*Edit searchbar placeholder for IE10*/
+.searchform :-ms-input-placeholder {
+  color: rgba(145, 143, 143, 0.795);
+  padding-left: 10px;
+}
+
+/* Style the submit button for search bar */
+.searchform button {
+  padding: 0px 10px 0px 11px;
+  background: #2196F3;
+  border: 1px solid grey; 
+  border-left: none; /*prevent double borders*/
+  cursor: pointer;
+}
+
+.searchform button i {
+  font-size: 15px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+
+
 </style>
 
