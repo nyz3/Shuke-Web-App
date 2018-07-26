@@ -19,9 +19,12 @@
             <a href="#news">News</a>
             <a href="#contact">Contact</a>
           </div>
+
+          <!-- code for profile, settings, and messages icons -->
+
           <div class=searchbar>
             <form class="searchform" action="/action_page.php">   <!--search contents go to /action_page.php default for now -->
-              <input type="text" placeholder="Search..." value="">    <!--SEARCH BAR GOES HERE -->
+              <input type="text" placeholder="Explore..." value="">    <!--SEARCH BAR GOES HERE -->
               <button type="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>
@@ -38,14 +41,17 @@
                 <i class="fa fa-feed" aria-hidden="true"></i>
                 Newsfeed
               </button>
+              <div class="buttondivider"></div>
               <button type="button" class="btn btn-default btn-sm">
                 <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                Recommendations
+                Discover
               </button>
+              <div class="buttondivider"></div>
               <button type="button" class="btn btn-default btn-sm">
                 <i class="fa fa-upload" aria-hidden="true"></i>
                 Latest
               </button>
+              <div class="buttondivider"></div>
               <button type="button" class="btn btn-default btn-sm">
                 <i class="fa fa-line-chart" aria-hidden="true"></i>
                 Trending
@@ -73,6 +79,7 @@ export default {
 
 <style scoped>
 
+/*container for the fixed navbar at top of page*/
 .navbarcontainer {
   top: 0;
   left: 0;
@@ -111,6 +118,7 @@ export default {
   color: black;
 }
 
+/*Shuke.ai logo on fixed navbar*/
 .logo {
   width: 80px;
   height: 36px;
@@ -121,11 +129,15 @@ export default {
   display: flex;
 }
 
+/*positions and sizes the search bar*/
 .searchform input 
 {
   height: 35px;
   width: 200px;
   padding-left: 5px;
+  border-right: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 /*Edit searchbar placeholder for Safari/Chrome*/
@@ -142,18 +154,21 @@ export default {
 
 /* Style the submit button for search bar */
 .searchform button {
+  width: 35px;
   padding: 0px 10px 0px 11px;
   background: #2196F3;
-  border: 1px solid grey; 
+  border: 2px solid grey; 
   border-left: none; /*prevent double borders*/
+  border-bottom-color: lightgrey;
   cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; 
 }
 
+/*styles the magnifying glass icon in search bar*/
 .searchform button i {
-  font-size: 15px;
-  padding: 0;
-  border: 0;
-  margin: 0;
+  font-size: 14px;
+  padding-bottom: 6px;
 }
 
 /*Background for everything other than the fixed navigation bar*/
@@ -166,28 +181,37 @@ export default {
 /*graphic design of navbar divider*/
 .contentnav {
   background-color: white;
-  height: 42px;
+  height: 36px;
   box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
-  line-height: 42px;
+  line-height: 36px;
   width: 100%;
   min-width: 1266px;
 }
 
 /*group of content navbar buttons*/
 .contentbuttons {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
 }
 
-/*centers individual buttons within content navbar divider*/
+/*centers individual buttons within content navbar divider and creates vertical separators*/
 .contentnav button {
   font-family: "Century Gothic", sans-serif;
   font-size: 105%;
   vertical-align: unset;
-  margin: 0px 25px;
+  margin: 0px 40px;
   background-color: transparent;
   border: none;
+}
+
+/*removes vertical separator to the right of the last button on content navbar*/
+.contentbuttons .buttondivider {
+  display: inline;
+  border-left: thin solid rgba(0, 0, 0, .2);
+  border-left-width: 2px;
+  border-radius: 100%;
+  margin-right: 4.5px;
 }
 
 /*color of content navbar button text changes when hover*/
