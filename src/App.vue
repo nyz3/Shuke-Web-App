@@ -17,10 +17,16 @@
           <div class="navlinks">
             <a href="#following">Home</a>
             <a href="#news">News</a>
+            <a href="aboutus">About Us</a>
             <a href="#contact">Contact</a>
           </div>
 
           <!-- code for profile, settings, and messages icons -->
+          <div class="navicons">
+            <a href="#messages"><i class="fa fa-comment-o fa-lg"></i></a>
+            <a href="#profile"><i class="fa fa-user-circle fa-lg"></i></a>
+            <a href="#settings"><i class="fa fa-gears fa-lg"></i></a>
+          </div>
 
           <div class=searchbar>
             <form class="searchform" action="/action_page.php">   <!--search contents go to /action_page.php default for now -->
@@ -43,7 +49,7 @@
               </button>
               <div class="buttondivider"></div>
               <button type="button" class="btn btn-default btn-sm">
-                <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                <i class="fa fa-binoculars" aria-hidden="true"></i>
                 Discover
               </button>
               <div class="buttondivider"></div>
@@ -53,7 +59,7 @@
               </button>
               <div class="buttondivider"></div>
               <button type="button" class="btn btn-default btn-sm">
-                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                <i class="fa fa-fire" aria-hidden="true"></i>
                 Trending
               </button>
 
@@ -92,7 +98,7 @@ export default {
 /* The navigation bar */
 .navbar {
  /* display: flex;*/
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -100,10 +106,11 @@ export default {
 
 .navlinks { /*work in progress*/
   display: flex;
-  margin-right: 38%;
+  margin-right: 3%; /*change later */
   margin-left: 3%;
   font-family: "Century Gothic", sans-serif;
   font-size: 90%;
+  padding-top: 5px; /*to align with icons to the right*/
 }
 
 /* Links inside the navbar */
@@ -123,6 +130,14 @@ export default {
   width: 80px;
   height: 36px;
 }
+
+/*messages, profile, and settings icon-links*/
+.navicons {
+  display: flex;
+  margin-right: 5%;
+}
+
+
 
 /*Style the search bar*/
 .searchform {
@@ -156,7 +171,7 @@ export default {
 .searchform button {
   width: 35px;
   padding: 0px 10px 0px 11px;
-  background: #2196F3;
+  background: rgb(0, 171, 165);
   border: 2px solid grey; 
   border-left: none; /*prevent double borders*/
   border-bottom-color: lightgrey;
@@ -195,6 +210,11 @@ export default {
   text-align: center;
 }
 
+/*puts spacing between icons and navbuttons for content*/
+.contentbuttons button i {
+  margin-right: 5px;
+}
+
 /*centers individual buttons within content navbar divider and creates vertical separators*/
 .contentnav button {
   font-family: "Century Gothic", sans-serif;
@@ -216,7 +236,7 @@ export default {
 
 /*color of content navbar button text changes when hover*/
 .contentnav button:hover {
-  color: orange;
+  color: rgb(171, 83, 0);
 }
 
 </style>
