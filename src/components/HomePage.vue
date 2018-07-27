@@ -23,17 +23,17 @@
             </div>
 
             <div class="QRcodes">
-              <div class="ioscontainer">
+              <div class="qrcontainer">
                 <button class="btn ios">iOS Version</button>
-                <div class="iosqrcode">
+                <div class="code">
                   <img src="../assets/qrcodeexample.jpg">
                 </div>
 
               </div>
-              <div class="androidcontainer">
+              <div class="qrcontainer">
                 <button class="btn android">Android Version</button>
-                <div class="androidqrcode">
-
+                <div class="code">
+                  <img src="../assets/qrcodeexample.jpg">
                 </div>
 
 
@@ -179,40 +179,31 @@ export default {
 
 
 /*contains everything related to the ios qr button/code*/
-.ioscontainer {
+.qrcontainer {
   width: 180px;
   margin-right: 30px;
 }
 
+.qrcontainer:hover div{
+  display: inline-block;
+}
+
 /*pseudo-dropdown with ios qr code whenever user hovers over ios button*/
-.iosqrcode {
+.code {
     display: none;
     position: relative;
     width: 180px;
-    height: 185px;
+    height: 180px;
     margin-top: -5px;
     background-color: black;
 }
 
-.iosqrcode img {
+.code img {
   height: 160px;
   width: 160px;
   margin-left: 10px;
   margin-top: 10px;
 }
-
-/*css hover function that reveals ios qr code whenever user hovers over ios button*/
-.ios:hover > .ios {
-    /* code */
-}
-
-/*contains everything related to the android qr button/code*/
-.androidcontainer {
-  width: 180px;
-}
-
-
-
 
 .topcontainerright {
   width: 50%;
