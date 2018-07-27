@@ -11,13 +11,17 @@
     <body>
       <div class="navbarcontainer">
         <div class="navbar">
-          <a href=#home>  <!--Clicking on Shuke logo should return user to the home page--> 
+
+          <router-link to="/home">
+          <!--Clicking on Shuke logo should return user to the home page--> 
             <img src="./assets/shukeLogo.png" alt="Shuke.ai" class="logo">
-          </a>
+          </router-link>
+
+          <!-- links to the right of logo-->
           <div class="navlinks">
             <a href="#following">Home</a>
             <a href="#news">News</a>
-            <a href="aboutus">About Us</a>
+            <a href="#aboutus">About Us</a>
             <a href="#contact">Contact</a>
           </div>
 
@@ -66,15 +70,14 @@
           </div>
         </div>
 
-
-
       </div>
+
+        <router-view></router-view>  <!--This is where additional components go in addition to the base layer, router-views can have nested
+          router-views within-->
     </body>
   </html>  
 </template>
 
-    <!--<router-view></router-view>  This is where additional components go in addition to the base layer, router-views can have nested
-          router-views within-->
 
 <script>
 /* eslint-disable */
@@ -93,17 +96,19 @@ export default {
   min-width: 1275px;
   position: fixed;
   box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
+  background: white;
+  z-index: 2; /*small hack to make navbar always top layer*/
 }
 
 /* The navigation bar */
 .navbar {
- /* display: flex;*/
   width: 100%;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
 }
 
+/*group of links on top navbar*/
 .navlinks { /*work in progress*/
   display: flex;
   margin-right: 3%; /*change later */
@@ -127,8 +132,8 @@ export default {
 
 /*Shuke.ai logo on fixed navbar*/
 .logo {
-  width: 80px;
-  height: 36px;
+  width: 100px;
+  height: 45px;
 }
 
 /*messages, profile, and settings icon-links*/
@@ -136,8 +141,6 @@ export default {
   display: flex;
   margin-right: 5%;
 }
-
-
 
 /*Style the search bar*/
 .searchform {
@@ -190,7 +193,7 @@ export default {
 .content {
   background-color: rgba(26, 26, 26, 0.050);
   color: black;
-  margin-top:56px;
+  margin-top:65px;
 }
 
 /*graphic design of navbar divider*/

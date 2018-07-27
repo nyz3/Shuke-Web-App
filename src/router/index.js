@@ -1,22 +1,19 @@
+/* eslint-disable */
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from '@/App'
-//import HomePage from '@/components/HomePage' //dont forget about this
-import routeTest from '@/components/routeTest'
+import HomePage from '@/components/HomePage'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    { //Homepage - loading screen
-      path: '/',
-      name: 'App',
-      component: App
-    },
+
     {
-      path: '/test',
-      name: 'test',
-      component: routeTest
+      path: '/home',    /*this is the home page, both / and /home should default to this*/
+      alias: ['/'],
+      name: 'home',
+      component: HomePage /*component must match import name*/
     }
+
   ]
 })
