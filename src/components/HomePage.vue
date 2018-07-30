@@ -4,55 +4,38 @@
   <div class="bodycontainer"> <!--overall container for everything except for navbar-->
     <div class="topcontainer"> <!--separate from content for future advertisement purposes-->
       <div class="topcontainercontent"> <!--container with typewriter effect and qr code and big shuke.ai logo-->
-
-
-
         <div class="topcontainerleft">  <!--container with QRcodes for app downloads and typewriter effects-->
           <div class="topleftcontent"> <!--center top-left content within top left container-->
-
             <div class="companyname">
               舒课
             </div>
-
             <div class="typewriterinfo">
               高中教育
             </div>
-
             <div class="slogan">
               bringing the joy in education.
             </div>
-
             <div class="QRcodes">
               <div class="qrcontainer">
                 <button class="btn ios">iOS Version</button>
                 <div class="code">
                   <img src="../assets/qrcodeexample.jpg">
                 </div>
-
               </div>
               <div class="qrcontainer">
                 <button class="btn android">Android Version</button>
                 <div class="code">
                   <img src="../assets/qrcodeexample.jpg">
                 </div>
-
-
               </div>
             </div>
-
           </div>
         </div>
-
-
-
         <div class="topcontainerright"> <!--container with the big logo at the top left-->
           <div class="logocontainer">
             <img src="../assets/shukeLogoNoText.png" alt="Shuke.ai" class="biglogo">
           </div>
         </div>
-
-
-
       </div>
     </div>
 
