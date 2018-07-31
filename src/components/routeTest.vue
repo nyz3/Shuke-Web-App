@@ -6,7 +6,7 @@
 
 <script>
 /* eslint-disable */
-import Vue from 'vue'
+// import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 

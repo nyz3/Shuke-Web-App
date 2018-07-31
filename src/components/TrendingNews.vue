@@ -1,0 +1,69 @@
+<!-- eslint-disable -->
+
+<template>
+    <div class="feedcontainer">
+        <span v-html="content"></span> <!--content injected here during page load-->
+    </div>
+</template>
+
+<script>
+/* eslint-disable */
+
+import axios from 'axios' /*axios and vueAxios are wrapper classes for automating API calls below in the "ajax" function*/
+import VueAxios from 'vue-axios'
+
+export default {
+    name: 'home',
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App',
+            content: ''
+        }
+    },
+    methods: {
+    // ajax () {
+    //   axios.get('/api/store/getgoodslist?goodsclassid=1').then((response) => {
+    //     console.log(response.data)
+    //   })
+    // }
+    },
+    created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
+      
+    axios.get('/api/article/section/2?pagenum=1&pagesize=20').then((response) => {
+        for(var i = 0; i < 20; i++)
+        {
+            this.content += ('<div class="postcontainer">TEST</div>')
+        }
+            console.log(response.data.data.list[0].content)
+    })
+
+      for(var i = 0; i < 10; i++){
+        this.content += ('<div class="postcontainer">TEST</div>')
+      }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+
+.feedcontainer { /*contains entire wall of post containers with retrieved post content*/
+    overflow: auto;
+    width: 540px;
+    height: 800px;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: center;
+    background-color: rgba(0,0,0,.1);
+}
+
+.feedcontainer >>> .postcontainer { /*deep operator '>>>' needed to style dynamically injected v-html data*/
+    background-color: white;
+    width: 500px;
+    height: 250px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+</style>

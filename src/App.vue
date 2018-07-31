@@ -3,35 +3,37 @@
 <!-- eslint-disable -->
 <template>
   <html>
-
     <head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-
     <body>
       <div class="navbarcontainer">
         <div class="navbar">
-
           <router-link to="/home">
           <!--Clicking on Shuke logo should return user to the home page--> 
             <img src="./assets/shukeLogo.png" alt="Shuke.ai" class="logo">
           </router-link>
-
           <!-- links to the right of logo-->
           <div class="navlinks">
-            <a href="#following">Home</a>
-            <a href="#news">News</a>
-            <a href="#aboutus">About Us</a>
-            <a href="#contact">Contact</a>
+            <router-link to="/home">
+              Home
+            </router-link>
+            <router-link to="/news">
+              News
+            </router-link>
+            <router-link to="/about">
+              About Us
+            </router-link>
+            <router-link to="/contact">
+              Contact
+            </router-link>
           </div>
-
           <!-- code for profile, settings, and messages icons -->
           <div class="navicons">
             <a href="#messages"><i class="fa fa-comment-o fa-lg"></i></a>
             <a href="#profile"><i class="fa fa-user-circle fa-lg"></i></a>
             <a href="#settings"><i class="fa fa-gears fa-lg"></i></a>
           </div>
-
           <div class=searchbar>
             <form class="searchform" action="/action_page.php">   <!--search contents go to /action_page.php default for now -->
               <input type="text" placeholder="Explore..." value="">    <!--SEARCH BAR GOES HERE -->
@@ -40,38 +42,39 @@
           </div>
         </div>
       </div>
-      
       <div class="content"> <!--all NONFIXED content, should all have top-margin separated from fixed navbar-->
-
-
         <div class="contentnav"> <!-- navigation bar (NOT FIXED) for newsfeed -->
           <div class="contentbuttons">
-
-              <button type="button" class="btn btn-default btn-sm">
-                <i class="fa fa-feed" aria-hidden="true"></i>
-                Newsfeed
-              </button>
+            <router-link to="/newsfeed">
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="fa fa-feed" aria-hidden="true"></i>
+                  Newsfeed
+                </button>
+            </router-link>
+            <router-link to="/discover">
               <div class="buttondivider"></div>
               <button type="button" class="btn btn-default btn-sm">
                 <i class="fa fa-binoculars" aria-hidden="true"></i>
                 Discover
               </button>
+            </router-link>
+            <router-link to="/latest">
               <div class="buttondivider"></div>
               <button type="button" class="btn btn-default btn-sm">
                 <i class="fa fa-upload" aria-hidden="true"></i>
                 Latest
               </button>
+            </router-link>
+            <router-link to="/trending">
               <div class="buttondivider"></div>
               <button type="button" class="btn btn-default btn-sm">
                 <i class="fa fa-fire" aria-hidden="true"></i>
                 Trending
               </button>
-
+            </router-link>
           </div>
         </div>
-
       </div>
-
         <router-view></router-view>  <!--This is where additional components go in addition to the base layer, router-views can have nested
           router-views within-->
     </body>
@@ -81,6 +84,7 @@
 
 <script>
 /* eslint-disable */
+
 export default {
   name: 'App'
 }
@@ -89,6 +93,7 @@ export default {
 <style scoped>
 
 /*container for the fixed navbar at top of page*/
+
 .navbarcontainer {
   top: 0;
   left: 0;

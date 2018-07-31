@@ -64,8 +64,8 @@
 
 <script>
 /* eslint-disable */
-import Vue from 'vue'
-import axios from 'axios'
+// import Vue from 'vue'
+import axios from 'axios' /*axios and vueAxios are wrapper classes for automating API calls below in the "ajax" function*/
 import VueAxios from 'vue-axios'
 
 export default {
@@ -205,8 +205,6 @@ export default {
   width: 376px;
   height: 400px;
 }
-
-
 
 .secondcontainer {
   height: 574px;
