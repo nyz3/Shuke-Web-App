@@ -21,25 +21,19 @@ export default {
         }
     },
     methods: {
-    // ajax () {
-    //   axios.get('/api/store/getgoodslist?goodsclassid=1').then((response) => {
-    //     console.log(response.data)
-    //   })
-    // }
+
     },
     created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
       
-    axios.get('/api/article/section/2?pagenum=1&pagesize=20').then((response) => {
-        for(var i = 0; i < 20; i++)
-        {
-            this.content += ('<div class="postcontainer">TEST</div>')
-        }
-            console.log(response.data.data.list[0].content)
-    })
+    axios.get('/api/article/section/3?pagenum=1&pagesize=20').then((response) => {
 
-      for(var i = 0; i < 10; i++){
-        this.content += ('<div class="postcontainer">TEST</div>')
-      }
+        for(var i = 0; i < response.data.data.list.length; i++)
+        {
+            var post = response.data.data.list[i].content;
+            this.content += ('<div class="postcontainer">' + post + '</div>');
+        }
+
+    });
   }
 }
 </script>

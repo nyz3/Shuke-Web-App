@@ -2,43 +2,38 @@
 
 <template>
     <div class="feedcontainer">
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
+        <span v-html="content"></span> <!--content injected here during page load-->
     </div>
 </template>
 
 <script>
 /* eslint-disable */
 
+import axios from 'axios' /*axios and vueAxios are wrapper classes for automating API calls below in the "ajax" function*/
+import VueAxios from 'vue-axios'
+
 export default {
-  name: 'home',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  },
-  methods: {
-    ajax () {
-      axios.get('/api/store/getgoodslist?goodsclassid=1').then((response) => {
-        console.log(response.data)
-      })
-    }
-  },
-  created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
-      console.log("hello");
+    name: 'home',
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App',
+            content: ''
+        }
+    },
+    methods: {
+        
+    },
+    created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
+      
+    axios.get('/api/article/follow/{userid}').then((response) => { /*REPLACE userid with ACTUAL USERID*/
+
+        for(var i = 0; i < response.data.data.list.length; i++)
+        {
+            var post = response.data.data.list[i].content;
+            this.content += ('<div class="postcontainer">' + post + '</div>');
+        }
+
+    });
   }
 }
 </script>
@@ -57,7 +52,7 @@ export default {
     background-color: rgba(0,0,0,.1);
 }
 
-.postcontainer {
+.feedcontainer >>> .postcontainer { /*deep operator '>>>' needed to style dynamically injected v-html data*/
     background-color: white;
     width: 500px;
     height: 250px;

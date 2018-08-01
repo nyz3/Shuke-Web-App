@@ -2,21 +2,7 @@
 
 <template>
     <div class="feedcontainer">
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
-        <div class="postcontainer">
-            Post content goes here.
-        </div>
+        <span v-html="content"></span> <!--content injected here during page load-->
     </div>
 </template>
 
@@ -27,25 +13,27 @@ import axios from 'axios' /*axios and vueAxios are wrapper classes for automatin
 import VueAxios from 'vue-axios'
 
 export default {
-  name: 'home',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  },
-  methods: {
-    // ajax () {
-    //   axios.get('/api/store/getgoodslist?goodsclassid=1').then((response) => {
-    //     console.log(response.data)
-    //   })
-    // }
-  },
-  created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
+    name: 'home',
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App',
+            content: ''
+        }
+    },
+    methods: {
+        
+    },
+    created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
+      
+    axios.get('/api/article/section/2?pagenum=1&pagesize=20').then((response) => {
 
-      axios.get('/api/article/section/2?pagenum=1&pagesize=3').then((response) => {
-        console.log(response.data)
-      })
+        for(var i = 0; i < response.data.data.list.length; i++)
+        {
+            var post = response.data.data.list[i].content;
+            this.content += ('<div class="postcontainer">' + post + '</div>');
+        }
 
+    });
   }
 }
 </script>
@@ -64,7 +52,7 @@ export default {
     background-color: rgba(0,0,0,.1);
 }
 
-.postcontainer {
+.feedcontainer >>> .postcontainer { /*deep operator '>>>' needed to style dynamically injected v-html data*/
     background-color: white;
     width: 500px;
     height: 250px;
