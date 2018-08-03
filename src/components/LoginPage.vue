@@ -34,11 +34,8 @@ export default {
 
         for(var i = 0; i < response.data.data.list.length; i++)
         {
-            // var post = response.data.data.list[i].content;
-            // this.content += ('<div class="postcontainer" id=' + /*insert unique post id info here*/ '><div class="posttext>' + post + '</div>'
-            // + newsAndButtons + '</div>');
-            
-            /* can pass API to function in NewsAndButtons class for automatic processing, reusability*/
+            var post = response.data.data.list[i].content;
+            this.content += ('<div class="postcontainer">' + post + '</div>');
         }
 
     });

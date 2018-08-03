@@ -1,7 +1,11 @@
+<!--This is a class that is used as a repeating component for the buttons within each post (tokens, likes, dislikes, comments, etc.-->
+
 <!-- eslint-disable -->
 
 <template>
-    
+    <div>
+        Testing
+    </div>
 </template>
 
 <script>
@@ -11,7 +15,7 @@ import axios from 'axios' /*axios and vueAxios are wrapper classes for automatin
 import VueAxios from 'vue-axios'
 
 export default {
-    name: 'home',
+    name: 'NewsAndButtons',
     data () {
         return {
 
