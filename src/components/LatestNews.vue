@@ -35,7 +35,7 @@ export default {
         for(var i = 0; i < response.data.data.list.length; i++)
         {
             var post = response.data.data.list[i].content; /*text content in each post*/
-            var buttons = '<div class=contentbuttons'
+            var buttons = '<div class=contentbuttons>'
             this.postContent += ('<div class="postcontainer">' + post + buttons + '</div>'); /*add buttons for each post right after post text*/
             
         }
