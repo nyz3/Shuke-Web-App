@@ -23,23 +23,23 @@ export default {
         }
     },
     methods: {
-
+        login: function() {
+            var phonenumber = ""; //set to value in phonenum box
+            var password = "";    //set to value in password box, encrypted when typed
+            //call API to login, if login successful, must modify all other pages to reflect the SUCCESSFUL login,
+            //for example, following page must reflect what the user has followed in the past.
+            axios.get('/api/user/login?phonenum=' + phonenumber + '&password=' + password).then((response) => {
+                //should be a POST request
+            });
+            //https://api.paimeigd.com/user/login
+        }
     },
     components: {
         newsAndButtons
     },
     created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
       
-    axios.get('/api/article/section/3?pagenum=1&pagesize=20').then((response) => {
-
-        for(var i = 0; i < response.data.data.list.length; i++)
-        {
-            var post = response.data.data.list[i].content;
-            this.content += ('<div class="postcontainer">' + post + '</div>');
-        }
-
-    });
-  }
+    }
 }
 </script>
 

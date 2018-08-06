@@ -19,6 +19,15 @@ export default {
         }
     },
     methods: {
+        register: function() {
+            var user = "";
+            var password = "";
+            var randomString = ""; //generate random string here, needs to be confirmed by the user for successful login.
+            //Call api, pass user and passwords as url parameters to check for congruency in back-end.
+            axios.get('/api/user/register?phonenum=' + phonenumber + '&password=' + password).then((response) => {
+                
+            });
+        }
 
     },
     components: {
