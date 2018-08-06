@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        Testing
+        Testing <!--parameters from data will go here, and vary based on the API call, each post is an UNIQUE NewsAndButtons component-->
     </div>
 </template>
 
@@ -18,11 +18,21 @@ export default {
     name: 'NewsAndButtons',
     data () {
         return {
+            //example
+            postContent: '',
+            numLikes: '',
+            numTokens: '',
+            numLikes: '',
+            numDislikes: '',
+            numComments: ''
 
         }
     },
     methods: {
-        
+        createInfo: function (/* should have dynamic parameters here*/) {
+            //CREATE NEWS AND BUTTONS TEMPLATE HERE BASED ON PASSED CONTENT, ALLOWS FOR REUSABILITY ACROSS ALL NEWSPAGES
+            //BASED ON PARAMETERS CHANGE VALUES IN DATA THAT REFLECT THEMSELVES ON THE TEMPLATE
+        }
     }
 }
 </script>

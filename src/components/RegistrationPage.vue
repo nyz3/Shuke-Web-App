@@ -24,8 +24,8 @@ export default {
             var password = "";
             var randomString = ""; //generate random string here, needs to be confirmed by the user for successful login.
             //Call api, pass user and passwords as url parameters to check for congruency in back-end.
-            axios.get('/api/user/register?phonenum=' + phonenumber + '&password=' + password).then((response) => {
-                
+            axios.get('/api/user/register?phonenum=' + phonenumber + '&password=' + password + '&randomstr=' + randomString).then((response) => {
+                //don't know what happens here LMAO
             });
         }
 

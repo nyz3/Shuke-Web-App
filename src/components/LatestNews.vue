@@ -30,13 +30,18 @@ export default {
     },
     created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
       
-    axios.get('/api/article/section/2?pagenum=1&pagesize=20').then((response) => {
-
+    axios.get('/api/article/section/2?pagenum=1&pagesize=20').then((response) => { /*articles have article id, answers have answerid, questions have */
+        console.log(response.data);
         for(var i = 0; i < response.data.data.list.length; i++)
         {
             var post = response.data.data.list[i].content; /*text content in each post*/
-            var buttons = '<div class=contentbuttons>'
-            this.postContent += ('<div class="postcontainer">' + post + buttons + '</div>'); /*add buttons for each post right after post text*/
+            var answerID = response.data.data.list[i].answerid;
+            var articleID = response.data.data.list[i].articleid;
+            console.log('ans: ' + answerID + ' article: ' + articleID);
+
+
+            // var buttons = '<div class=contentbuttons>'
+            // this.postContent += ('<div class="postcontainer">' + post + buttons + '</div>'); /*add buttons for each post right after post text*/
             
         }
 
