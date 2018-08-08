@@ -4,7 +4,8 @@
 
 <template>
     <div>
-        Testing <!--parameters from data will go here, and vary based on the API call, each post is an UNIQUE NewsAndButtons component-->
+        postContent + numTokens + numLikes + numDislikes + numComments
+        <!--parameters from data will go here, and vary based on the API call, each post is an UNIQUE NewsAndButtons component-->
     </div>
 </template>
 
@@ -16,24 +17,33 @@ import VueAxios from 'vue-axios'
 
 export default {
     name: 'NewsAndButtons',
-    data () {
-        return {
-            //example
-            postContent: '',
-            numLikes: '',
-            numTokens: '',
-            numLikes: '',
-            numDislikes: '',
-            numComments: ''
-
-        }
-    },
-    methods: {
-        createInfo: function (/* should have dynamic parameters here*/) {
-            //CREATE NEWS AND BUTTONS TEMPLATE HERE BASED ON PASSED CONTENT, ALLOWS FOR REUSABILITY ACROSS ALL NEWSPAGES
-            //BASED ON PARAMETERS CHANGE VALUES IN DATA THAT REFLECT THEMSELVES ON THE TEMPLATE
-        }
+    props: {
+            postType: null,           //question, article, or answer.
+            IDNumber: null,           //IDnumber associated with posttype, used for identification purposes during API calls.
+            postContent: null,        //props can be est. during construction of component.
+            numTokens: null, 
+            numLikes: null, 
+            numDislikes: null, 
+            numComments: null
     }
+          
+    // name: 'NewsAndButtons',
+    // data () {
+    //     return {
+    //         //example
+    //         postContent: '',
+    //         numTokens: '',
+    //         numLikes: '',
+    //         numDislikes: '',
+    //         numComments: ''
+    //     }
+    // },
+    // methods: {
+    //     createInfo: function (text, tokens, likes, dislikes, comments) {
+    //         //CREATE NEWS AND BUTTONS TEMPLATE HERE BASED ON PASSED CONTENT, ALLOWS FOR REUSABILITY ACROSS ALL NEWSPAGES
+    //         //BASED ON PARAMETERS CHANGE VALUES IN DATA THAT REFLECT THEMSELVES ON THE TEMPLATE
+    //     }
+    // }
 }
 </script>
 
