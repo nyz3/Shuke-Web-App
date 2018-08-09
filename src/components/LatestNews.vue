@@ -68,12 +68,20 @@ export default {
 
             var post = info.content; /*text content in each post*/
             var tokens = info.tokens; //NEEDS UPDATING
-            var likes = info.likes;
+            var likes = info.praisecount;
             var dislikes = info.dislikes;
             var comments = info.comments;
 
             var postData = {postType, uniqueID, post, tokens, likes, dislikes, comments};
             posts.add(postData);    //add each set of post data as an object into the post array in 'data'
+
+            //example response
+            //
+            // {"statusCode":"200","errorMsg":null,"data":{"total":30,"list":[{"userid":null,"nickname":null,
+            // "headimageurl":null,"title":"这是文章","createtime":"2018-08-03T02:28:13.000+0000","praisecount":null,
+            // "treadcount":null,"articleid":258,"answerid":null,"questionid":null,
+            // "content":"啦咯啦咯啦咯啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦啦咯啦咯啦咯啦咯啦",
+            // "commentcount":0,"timeAgo":"6天前","id":258,"typeid":0,"imageurl":null}]}}
         }
     });
   }

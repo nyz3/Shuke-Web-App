@@ -5,6 +5,7 @@ import HomePage from '@/components/HomePage'
 import Newsfeed from '@/components/Newsfeed'
 import LatestNews from '@/components/LatestNews'
 import TrendingNews from '@/components/TrendingNews'
+import Registration from '@/components/RegistrationPage'
 
 Vue.use(Router)
 
@@ -45,6 +46,11 @@ export default new Router({
       path: '/trending',
       name: 'trending',
       component: TrendingNews
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Registration
     }
   ]
 })

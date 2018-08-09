@@ -31,7 +31,7 @@
           <!-- code for profile, settings, and messages icons -->
           <div class="navicons">
             <a href="#messages"><i class="fa fa-comment-o fa-lg"></i></a>
-            <a href="#profile"><i class="fa fa-user-circle fa-lg"></i></a>
+            <router-link to="/register"><i class="fa fa-user-circle fa-lg"></i></router-link>
             <a href="#settings"><i class="fa fa-gears fa-lg"></i></a>
           </div>
           <div class=searchbar>
