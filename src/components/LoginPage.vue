@@ -1,9 +1,29 @@
 <!-- eslint-disable -->
 
 <template>
-    <div class="feedcontainer">
-        <!-- <span v-html="content"></span> content injected here during page load -->
-        <newsAndButtons></newsAndButtons>
+    <div class="registrationBox">
+        <div class="registrationForm">
+            <div class="userInfo">
+                <div>
+                    <input type="text" id="phoneNumber" placeholder="Phone Number" name="contact"> 
+                    <button type="button" class="getVerificationCode" v-on:click="getVerification">
+                    Send Verification
+                    </button>
+                </div>
+                <div>
+                    <input type="text" id="verificationCode" placeholder="Verification Code" name="verification">
+                </div>
+                <div>
+                    <input type="text" id="pass" placeholder="Create Password" name="password">
+                </div>
+                <div>
+                    <input type="text" id="confirmpass" placeholder="Re-enter Password" name="repassword">
+                </div>
+            </div> 
+            <div class="registrationFormButtons">
+                <button type="submit" class="registerButton" v-on:click="register">Register</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -12,30 +32,46 @@
 
 import axios from 'axios' /*axios and vueAxios are wrapper classes for automating API calls below in the "ajax" function*/
 import VueAxios from 'vue-axios'
-import newsAndButtons from './subcomponents/NewsAndButtons.vue' /*import NewsAndButtons class, used in combination with created loop function for each post*/
 
 export default {
-    name: 'home',
+    name: 'registration',
     data () {
         return {
-            msg: 'Welcome to Your Vue.js App',
-            content: ''
+           
         }
     },
     methods: {
-        login: function() {
-            var phonenumber = ""; //set to value in phonenum box
-            var password = "";    //set to value in password box, encrypted when typed
-            //call API to login, if login successful, must modify all other pages to reflect the SUCCESSFUL login,
-            //for example, following page must reflect what the user has followed in the past.
-            axios.get('/api/user/login?phonenum=' + phonenumber + '&password=' + password).then((response) => {
-                //should be a POST request
+        getVerification: function() {
+            var contact = document.querySelector("input[name=contact]").value; //currently only coded for phone numbers
+            axios.get('/api/user/register?phonenum='+contact).then((response) => {
+                console.log();
             });
-            //https://api.paimeigd.com/user/login
+        },
+
+        register: function() {
+            var phoneNum = document.querySelector("input[name=contact]").value;
+            var verification = document.querySelector("input[name=verification]").value;
+            var password = document.querySelector("input[name=password]").value;
+            var confirmPassword = document.querySelector("input[name=repassword]").value;
+        
+            if(password.equals(confirmPassword)) {  //Registration API, confirms if verification is correct
+                axios.get('/api/user/register?phonenum=' + phoneNum + '&password=' + password + '&randomstr=' + verification).then((response) => {
+                    //should be successfully registered at this point
+                    if(response.status == 200) {//if API confirmation successful
+
+                        //Tell user they have succesfully registered
+
+                    } else {
+                        //Tell user why they were not succesfully registered (verification code not correct, etc.)
+                    }
+                });
+            } else {
+                console.log("PASSWORDS DO NOT MATCH") //should result in an error on the page instead of printing to console
+            }
         }
     },
     components: {
-        newsAndButtons
+       
     },
     created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
       
@@ -45,24 +81,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
-.feedcontainer { /*contains entire wall of post containers with retrieved post content*/
-    overflow: auto;
-    width: 540px;
-    height: 800px;
-    margin: 0 auto;
-    margin-top: 25px;
-    text-align: center;
-    background-color: rgba(0,0,0,.1);
-}
-
-.feedcontainer >>> .postcontainer { /*deep operator '>>>' needed to style dynamically injected v-html data*/
-    background-color: white;
+.registrationBox {
     width: 500px;
-    height: 250px;
     margin: 0 auto;
     margin-top: 10px;
 }
 
+.userInfo input {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.registrationForm {
+    text-align: center;
+    height: 500px;
+}
+
+.registrationFormButtons {
+    margin-top: 10px;
+}
 </style>

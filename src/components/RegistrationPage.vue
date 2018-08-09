@@ -5,7 +5,7 @@
         <div class="registrationForm">
             <div class="userInfo">
                 <div>
-                    <input type="text" id="phoneOrEmail" placeholder="Phone Number" name="contact"> 
+                    <input type="text" id="phoneNumber" placeholder="Phone Number" name="contact"> 
                     <button type="button" class="getVerificationCode" v-on:click="getVerification">
                     Send Verification
                     </button>
@@ -16,8 +16,10 @@
                 <div>
                     <input type="text" id="pass" placeholder="Create Password" name="password">
                 </div>
+                <div>
+                    <input type="text" id="confirmpass" placeholder="Re-enter Password" name="repassword">
+                </div>
             </div> 
-            
             <div class="registrationFormButtons">
                 <button type="submit" class="registerButton" v-on:click="register">Register</button>
             </div>
@@ -40,26 +42,33 @@ export default {
     },
     methods: {
         getVerification: function() {
-            var contact = document.querySelector("input[name=contact").value; //currently only coded for phone numbers
+            var contact = document.querySelector("input[name=contact]").value; //currently only coded for phone numbers
             axios.get('/api/user/register?phonenum='+contact).then((response) => {
                 console.log();
             });
         },
 
         register: function() {
+            var phoneNum = document.querySelector("input[name=contact]").value;
+            var verification = document.querySelector("input[name=verification]").value;
+            var password = document.querySelector("input[name=password]").value;
+            var confirmPassword = document.querySelector("input[name=repassword]").value;
+        
+            if(password.equals(confirmPassword)) {  //Registration API, confirms if verification is correct
+                axios.get('/api/user/register?phonenum=' + phoneNum + '&password=' + password + '&randomstr=' + verification).then((response) => {
+                    //should be successfully registered at this point
+                    if(response.status == 200) {//if API confirmation successful
 
-            // var user = document.querySelector("input[name=contact").value;
-            // var password = document.querySelector("input[name=password").value;
-            // console.log("register called " + user + " " + password);
+                        //Tell user they have succesfully registered
 
-            // var randomString = ""; //generate random string here, needs to be confirmed by the user for successful login.
-            // //Call api, pass user and passwords as url parameters to check for congruency in back-end.
-            // axios.get('/api/user/register?phonenum=' + phonenumber + '&password=' + password + '&randomstr=' + randomString).then((response) => {
-            //     //don't know what happens here LMAO
-            // });
+                    } else {
+                        //Tell user why they were not succesfully registered (verification code not correct, etc.)
+                    }
+                });
+            } else {
+                console.log("PASSWORDS DO NOT MATCH") //should result in an error on the page instead of printing to console
+            }
         }
-
-
     },
     components: {
        
@@ -76,10 +85,6 @@ export default {
     width: 500px;
     margin: 0 auto;
     margin-top: 10px;
-}
-
-.userInfo {
-    
 }
 
 .userInfo input {
