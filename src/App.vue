@@ -84,8 +84,6 @@
 <script>
 /* eslint-disable */
 
-import {store} from './main.js';
-
 export default {
   name: 'App',
   data() {
@@ -94,7 +92,7 @@ export default {
     }
   },
   created (){
-    console.log(store);
+
   }
   
 }

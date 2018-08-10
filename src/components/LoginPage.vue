@@ -45,7 +45,8 @@ export default {
                 if(response.status == 200) {//if API confirmation successful
 
                     //Tell user they have succesfully logged in, LET PROGRAM KNOW USER IS LOGGED IN FOR CUSTOMIZED POSTS
-
+                    //THEN, let application know log-in successful in order to gear content for user
+                    this.$store.state.loginStatus = 1;
                 } else {
                     //Tell user why they were not succesfully registered (verification code not correct, etc.)
                 }
