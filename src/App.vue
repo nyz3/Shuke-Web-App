@@ -35,10 +35,11 @@
             <a href="#settings"><i class="fa fa-gears fa-lg"></i></a>
           </div>
           <div class=searchbar>
-            <form class="searchform" action="/action_page.php">   <!--search contents go to /action_page.php default for now -->
-              <input type="text" placeholder="Explore..." value="">    <!--SEARCH BAR GOES HERE -->
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+              <!--v-model binds the input in the search bar dynamically with the searchText value in data, and data should be passed to router as param-->
+              <input type="text" v-model="searchText" placeholder="Explore...">    <!--SEARCH BAR GOES HERE -->
+              <router-link to="/search/ + 'sdsdsd'">
+                <button type="button"><i class="fa fa-search"></i></button>
+              </router-link> 
           </div>
         </div>
       </div>
@@ -88,7 +89,13 @@ export default {
   name: 'App',
   data() {
     return {
-      
+      searchText: null
+    }
+  },
+  methods: {
+    searchContent: function() {
+      var searchParams = document.querySelector("input[name=searchText]").value;
+      this.$router.push('search/' + searchParams);
     }
   },
   created (){
@@ -156,12 +163,12 @@ export default {
 }
 
 /*Style the search bar*/
-.searchform {
+.searchbar {
   display: flex;
 }
 
 /*positions and sizes the search bar*/
-.searchform input 
+.searchbar input 
 {
   height: 35px;
   width: 200px;
@@ -172,19 +179,19 @@ export default {
 }
 
 /*Edit searchbar placeholder for Safari/Chrome*/
-.searchform ::-webkit-input-placeholder {
+.searchbar ::-webkit-input-placeholder {
   color: rgba(145, 143, 143, 0.795);
   padding-left: 2px;
 }
 
 /*Edit searchbar placeholder for IE10*/
-.searchform :-ms-input-placeholder {
+.searchbar :-ms-input-placeholder {
   color: rgba(145, 143, 143, 0.795);
   padding-left: 2px;
 }
 
 /* Style the submit button for search bar */
-.searchform button {
+.searchbar button {
   width: 35px;
   padding: 0px 10px 0px 11px;
   background: rgb(0, 171, 165);
@@ -197,7 +204,7 @@ export default {
 }
 
 /*styles the magnifying glass icon in search bar*/
-.searchform button i {
+.searchbar button i {
   font-size: 14px;
   padding-bottom: 6px;
 }

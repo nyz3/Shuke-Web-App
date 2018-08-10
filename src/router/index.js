@@ -7,6 +7,7 @@ import LatestNews from '@/components/LatestNews'
 import TrendingNews from '@/components/TrendingNews'
 import Registration from '@/components/RegistrationPage'
 import Login from '@/components/LoginPage'
+import Search from '@/components/SearchContent'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/search/:id',
+      name: 'search',
+      component: Search
     }
   ]
 })
