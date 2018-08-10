@@ -21,6 +21,9 @@
                 </div>
             </div> 
             <div class="registrationFormButtons">
+                <router-link to="/login">
+                    <button type="button" class="loginButton">Existing User</button>
+                </router-link>
                 <button type="submit" class="registerButton" v-on:click="register">Register</button>
             </div>
         </div>

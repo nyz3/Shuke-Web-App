@@ -6,6 +6,7 @@ import Newsfeed from '@/components/Newsfeed'
 import LatestNews from '@/components/LatestNews'
 import TrendingNews from '@/components/TrendingNews'
 import Registration from '@/components/RegistrationPage'
+import Login from '@/components/LoginPage'
 
 Vue.use(Router)
 
@@ -51,6 +52,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Registration
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })
