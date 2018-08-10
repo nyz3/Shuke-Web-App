@@ -37,9 +37,11 @@
           <div class=searchbar>
               <!--v-model binds the input in the search bar dynamically with the searchText value in data, and data should be passed to router as param-->
               <input type="text" v-model="searchText" placeholder="Explore...">    <!--SEARCH BAR GOES HERE -->
-              <router-link to="/search/ + 'sdsdsd'">
+              <router-link :to="'/search/' + searchText">
                 <button type="button"><i class="fa fa-search"></i></button>
               </router-link> 
+
+              <!-- <router-link :to="{ name: 'Page2', params: { id: 1234 } }">Navigate to Page2</router-link> -->
           </div>
         </div>
       </div>
@@ -76,7 +78,7 @@
           </div>
         </div>
       </div>
-        <router-view></router-view>  <!--This is where additional components go in addition to the base layer, router-views can have nested
+        <router-view :key="$route.fullPath"></router-view>  <!--This is where additional components go in addition to the base layer, router-views can have nested
           router-views within-->
     </body>
   </html>  
@@ -93,15 +95,11 @@ export default {
     }
   },
   methods: {
-    searchContent: function() {
-      var searchParams = document.querySelector("input[name=searchText]").value;
-      this.$router.push('search/' + searchParams);
-    }
+    
   },
   created (){
 
-  }
-  
+  }  
 }
 </script>
 
