@@ -58,7 +58,7 @@ export default {
     },
 
     created() {                   /*automatically called when router routes to this page, should retrieve content from API*/
-      
+        console.log(this.$root.loginStatus);
     }
 }
 </script>

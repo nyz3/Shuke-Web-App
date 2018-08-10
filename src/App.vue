@@ -81,12 +81,22 @@
   </html>  
 </template>
 
-
 <script>
 /* eslint-disable */
 
+import {store} from './main.js';
+
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      
+    }
+  },
+  created (){
+    console.log(store);
+  }
+  
 }
 </script>
 
